@@ -1,7 +1,7 @@
 def IfNumber(line):
     array = list(line)
     for element in array:
-        if ord(element) < 48 or ord(element) > 57:
+        if ord(element) < 48 and ord(element) != 46 or ord(element) > 57:
             return False
     return True
 
@@ -30,12 +30,12 @@ def GetNameOfOperation(symbol):
 def Operation(a, b, c):
     if IfNumber(a) and IfNumber(c) and IfArithmeticSign(b):
         if b == '+':
-            return(int(a) + int(c))
+            return(float(a) + float(c))
         elif b == '-':
-            return(int(a) - int(c))
+            return(float(a) - float(c))
         elif b == '*':
-            return(int(a) * int(c))
+            return(float(a) * float(c))
         elif b == '/':  
-            return(int(a) / int(c))
+            return(float(a) / float(c))
     else:
         return 'Некорректный ввод данных. Повторите попытку'
